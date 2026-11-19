@@ -30,7 +30,14 @@ heroKnapp.addEventListener("click", (handelse) => {
 // DEL 2: filtret ----------------------------------------------------------
 // 3. Skriv funktionen uppdateraMeny(filter: Filter): void: hämta rätter med filtreraMeny, visa dem med visaMeny,
 //    uppdatera rubriken och markera den billigaste lunchen som dagens rätt (om det finns någon lunch).
+function uppdateraMeny(filter: Filter): void {
+  filtreraMeny(meny, filter);
+  visaMeny(lista, meny);
+  uppdateraRubrik(rubrik, meny.length);
+  markeraDagensRatt(lista, billigast(meny).id);
+}
 // 4. Anropa uppdateraMeny("alla") direkt, och koppla filterknapparna med kopplaFilter.
+uppdateraMeny("alla");
 // TODO
 
 
