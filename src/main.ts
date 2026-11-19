@@ -38,6 +38,7 @@ function uppdateraMeny(filter: Filter): void {
 }
 // 4. Anropa uppdateraMeny("alla") direkt, och koppla filterknapparna med kopplaFilter.
 uppdateraMeny("alla");
+kopplaFilter(filterGrupp, uppdateraMeny);
 // TODO
 
 
