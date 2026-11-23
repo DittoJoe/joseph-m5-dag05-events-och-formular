@@ -24,7 +24,6 @@ heroKnapp.addEventListener("click", (handelse) => {
   });
 // 2. Lägg till handelse.preventDefault() i lyssnaren. Vad händer med länken?
 //    Ta bort preventDefault igen när du provat.
-// TODO
 
 
 // DEL 2: filtret ----------------------------------------------------------
@@ -39,7 +38,6 @@ function uppdateraMeny(filter: Filter): void {
 // 4. Anropa uppdateraMeny("alla") direkt, och koppla filterknapparna med kopplaFilter.
 uppdateraMeny("alla");
 kopplaFilter(filterGrupp, uppdateraMeny);
-// TODO
 
 
 // DEL 3 (fördjupning): beställningen ---------------------------------------
