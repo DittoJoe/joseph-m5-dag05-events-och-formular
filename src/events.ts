@@ -1,4 +1,5 @@
 // Dag 5: Funktioner som kopplar händelser (events). Gör testerna gröna på tests.html.
+import { filtreraMeny } from "./filter";
 import type { Filter } from "./typer";
 // Båda använder EVENT DELEGATION: EN lyssnare på parent, inte en per knapp.
 
@@ -9,7 +10,15 @@ import type { Filter } from "./typer";
 //    Klick på något annat i gruppen ska inte göra något.
 //    Tips: handelse.target.closest('button[data-filter]')
 export function kopplaFilter(grupp: HTMLElement, vidVal: (filter: Filter) => void): void {
-  // TODO
+  grupp.addEventListener("click", (handelse) => {
+  const knapp = handelse.target.closest("button[data-filter]");
+  if (!knapp || !grupp.contains(knapp)) return;
+  const allaKnappar = grupp.querySelectorAll("button[data-filter]");
+  allaKnappar.forEach((annanKnapp) => {
+    annanKnapp.setAttribute("aria-pressed", String(annanKnapp === knapp));
+  });
+  vidVal(knapp.dataset.filter);
+  });
 }
 
 // 2. container innehåller kort med knappar: <button class="lagg-i-order" data-id="3">
